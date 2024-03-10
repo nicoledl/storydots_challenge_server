@@ -22,7 +22,7 @@ createUser = async ( req, res ) =>
     }
 };
 
-authenticate = async (req, res) => 
+login = async (req, res) => 
 {
   try {
       const { username, password } = req.body;
@@ -36,7 +36,7 @@ authenticate = async (req, res) =>
 
       if (passwordMatch) {
           const token = generateToken({ username: username, admin: user.admin });
-          console.log(token);
+          
           res.json({ token });
       } else {
           res.status(401).send('Invalid credentials');
@@ -47,4 +47,4 @@ authenticate = async (req, res) =>
   }
 };
 
-module.exports = { createUser, authenticate }
+module.exports = { createUser, login }

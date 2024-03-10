@@ -15,12 +15,13 @@ const generateToken = ( userData ) => {
 const verifyToken = (req, res, next) => {
     try {
         const {token} = req.headers;
-
+        const valueToken = JSON.parse(token).token;
+        
         if (!token) {
-            return res.status(401).json({ error: "No token provided" });
+            return res.status(401).json({ error: " provided" });
         }
 
-        jwt.verify(token, process.env.JWT_SECRET_KEY);
+        jwt.verify(valueToken, process.env.JWT_SECRET_KEY);
 
         next();
     } catch (error) {
