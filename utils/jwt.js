@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
         const valueToken = JSON.parse(token).token;
         
         if (!token) {
-            return res.status(401).json({ error: " provided" });
+            return res.status(401).json({ error: "No token provided" });
         }
 
         jwt.verify(valueToken, process.env.JWT_SECRET_KEY);

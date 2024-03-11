@@ -3,6 +3,7 @@ const Brand = require('../db/models/brand')
 postBrand = async ( req, res ) =>
   {
     const brand = req.body;
+    console.log(brand);
     try 
       {
         const newBrand = await Brand.create(brand);

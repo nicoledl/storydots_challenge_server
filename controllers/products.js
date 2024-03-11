@@ -76,7 +76,7 @@ deleteAllProducts = async (req, res)=>
     }
 };
 
-deleteProduct = async (req, res) =>
+delete_product = async (req, res) =>
 {
   try
     {
@@ -92,4 +92,4 @@ deleteProduct = async (req, res) =>
     }
 }
 
-module.exports = {postProduct, getAllProducts, getProduct, updateProduct, deleteAllProducts, deleteProduct }
+module.exports = {postProduct, getAllProducts, getProduct, updateProduct, deleteAllProducts, delete_product }
