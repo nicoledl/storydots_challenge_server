@@ -61,21 +61,6 @@ updateProduct = async (req, res) =>
     }
 }
 
-deleteAllProducts = async (req, res)=>
-{
-  try
-    {
-      const allProducts = await Product.destroy({ truncate: true });
-
-      res.json(allProducts);
-    }
-  catch (error)
-    {
-      console.error('Error creating product:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
-
 delete_product = async (req, res) =>
 {
   try
@@ -92,4 +77,4 @@ delete_product = async (req, res) =>
     }
 }
 
-module.exports = {postProduct, getAllProducts, getProduct, updateProduct, deleteAllProducts, delete_product }
+module.exports = {postProduct, getAllProducts, getProduct, updateProduct, delete_product }
