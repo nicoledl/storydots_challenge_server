@@ -3,10 +3,11 @@ const {database, username, password, host, dialect, port} = require('../config/d
 
 const sequelize = new Sequelize(database, username, password, {
   host: host,
-  dialect: dialect
-})
+  dialect: dialect,
+  port: port
+});
 
-(async () => {
+const connectToDatabase = async () => {
   try {
     await sequelize.authenticate();
     await sequelize.sync({ force: false });
@@ -15,6 +16,8 @@ const sequelize = new Sequelize(database, username, password, {
     console.error('Unable to connect to the database:', error);
     throw new ConnectionError('Data base is not available')
   }
-})();
+};
+
+connectToDatabase();
   
 module.exports = sequelize;
