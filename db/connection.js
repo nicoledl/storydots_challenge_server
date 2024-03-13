@@ -8,7 +8,6 @@ const sequelize = new Sequelize(database, username, password, {
 });
 
 const connectToDatabase = async () => {
-  console.log(database, username, password, host, dialect, port);
   try {
     await sequelize.authenticate();
     await sequelize.sync({ force: false });
