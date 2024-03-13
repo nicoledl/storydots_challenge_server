@@ -1,7 +1,10 @@
 const {Sequelize, ConnectionError} = require('sequelize');
 const {database, username, password, host, dialect, port} = require('../config/db');
 
-const sequelize = new Sequelize({dialect, host, port, database, username, password});
+const sequelize = new Sequelize(database, username, password, {
+  host: host,
+  dialect: dialect
+})
 
 (async () => {
   try {
